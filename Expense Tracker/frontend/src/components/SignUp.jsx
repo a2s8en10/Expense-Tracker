@@ -16,7 +16,7 @@ const Signup = ({ API_URL = import.meta.env.VITE_API_URL || "http://localhost:40
 
   const fetchProfile = async (token) => {
     if (!token) return null;
-    const response = await axios.get(`${API_URL}api/user/me`, {
+    const response = await axios.get(`${API_URL}/api/user/me`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -61,7 +61,7 @@ const Signup = ({ API_URL = import.meta.env.VITE_API_URL || "http://localhost:40
     setIsLoading(true);
     try {
       const res = await axios.post(
-        `${API_URL}api/user/register`,
+        `${API_URL}/api/user/register`,
         {
           name,
           email,

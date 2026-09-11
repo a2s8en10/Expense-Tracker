@@ -15,7 +15,7 @@ const Login = ({ onLogin, API_URL = import.meta.env.VITE_API_URL || "http://loca
 
   const fetchProfile = async (token) => {
     if (!token) return null;
-    const response = await axios.get(`${API_URL}api/user/me`, {
+    const response = await axios.get(`${API_URL}/api/user/me`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -38,7 +38,7 @@ const Login = ({ onLogin, API_URL = import.meta.env.VITE_API_URL || "http://loca
 
     try {
       const res = await axios.post(
-        `${API_URL}api/user/login`,
+        `${API_URL}/api/user/login`,
         {
           email,
           password,
@@ -104,9 +104,10 @@ const Login = ({ onLogin, API_URL = import.meta.env.VITE_API_URL || "http://loca
             </div>
             <h1 className={loginStyles.headerTitle}>Welcome to the App</h1>
             <p className={loginStyles.headerSubtitle}>
-              Please login to continue
+              Sign in to continue managing your finances
             </p>
-            <div className={loginStyles.formContainer}>
+          </div>
+          <div className={loginStyles.formContainer}>
               {error && (
                 <div className={loginStyles.errorContainer}>
                   <div className={loginStyles.errorIcon}>
@@ -230,14 +231,13 @@ const Login = ({ onLogin, API_URL = import.meta.env.VITE_API_URL || "http://loca
                 <p className={loginStyles.signUpText}>
                   Don't have an account?{" "}
                   <Link to="/signup" className={loginStyles.signUpLink}>
-                    Create new account
+                    Create an account
                   </Link>
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

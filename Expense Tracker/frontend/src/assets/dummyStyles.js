@@ -540,7 +540,7 @@ export const sidebarStyles = {
   },
   
   sidebarInner: {
-    base: "bg-white border-r  border-gray-200 shadow-md h-full flex flex-col"
+    base: "bg-white border-r border-gray-200 shadow-md h-full flex flex-col"
   },
   
   // User profile section
@@ -632,7 +632,7 @@ export const styles = {
   // Layout and Container Styles
   layout: {
     root: "min-h-screen bg-gradient-to-br from-gray-50 to-gray-100",
-    mainContainer: (sidebarCollapsed) => 
+    mainContainer: (sidebarCollapsed) =>
       `p-4 pt-6 transition-all duration-300 ${sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'}`,
   },
 
