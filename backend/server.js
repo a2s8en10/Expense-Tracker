@@ -9,9 +9,24 @@ import dashboardRouter from "./routes/dashboardRoute.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  "https://expense-tracker-one-mu-45.vercel.app",
+].filter(Boolean);
 
 // middleware
-app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+
+    callback(new Error("Origin not allowed by CORS"));
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
