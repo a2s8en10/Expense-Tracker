@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { Outlet } from "react-router-dom";
 
-const API_BASE = "http://localhost:4000/api";
+const API_BASE = `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api`;
 
 const filterTransactions = (transactions, frame) => {
   const now = new Date();
