@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { Outlet } from "react-router-dom";
 
-const API_BASE = `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/api`;
+const API_BASE = `${import.meta.env.VITE_API_URL || "https://expense-tracker-dcne.onrender.com"}/api`;
 
 const filterTransactions = (transactions, frame) => {
   const now = new Date();
